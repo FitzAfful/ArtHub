@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		848F5097246D4FAE00112005 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5096246D4FAE00112005 /* ColorPickerViewController.swift */; };
 		848F509A246D4FE700112005 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5099246D4FE700112005 /* GradientSlider.swift */; };
+		848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848F509B246D576200112005 /* ColorPickerViewController.xib */; };
 		84A49506246CC0FA00773B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49505246CC0FA00773B5C /* AppDelegate.swift */; };
 		84A49508246CC0FA00773B5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49507246CC0FA00773B5C /* SceneDelegate.swift */; };
 		84A4950A246CC0FA00773B5C /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49509246CC0FA00773B5C /* ImagePickerController.swift */; };
@@ -50,6 +51,7 @@
 /* Begin PBXFileReference section */
 		848F5096246D4FAE00112005 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		848F5099246D4FE700112005 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
+		848F509B246D576200112005 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
 		84A49502246CC0F900773B5C /* ArtHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A49505246CC0FA00773B5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A49507246CC0FA00773B5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				848F5096246D4FAE00112005 /* ColorPickerViewController.swift */,
+				848F509B246D576200112005 /* ColorPickerViewController.xib */,
 			);
 			path = Color;
 			sourceTree = "<group>";
@@ -321,6 +324,7 @@
 			files = (
 				84A49512246CC0FC00773B5C /* LaunchScreen.storyboard in Resources */,
 				84A4950F246CC0FC00773B5C /* Assets.xcassets in Resources */,
+				848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */,
 				84A4950D246CC0FA00773B5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
