@@ -10,13 +10,29 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    var bgImages: [UIImage] = [UIImage(named: "bgImage1")!,
+                               UIImage(named: "bgImage2")!,
+                               UIImage(named: "bgImage3")!,
+                               UIImage(named: "bgImage4")!,
+                               UIImage(named: "bgImage5")!,
+                               UIImage(named: "bgImage6")!]
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
     }
 
     @IBAction func startPicker(_ sender: Any) {
-        
+
+        let alert = UIAlertController(style: .actionSheet)
+        alert.addImagePicker(
+            flow: .vertical,
+            paging: false,
+            images: bgImages,
+            selection: .single(action: { image in
+
+            }))
+        alert.addAction(title: "OK", style: .cancel)
+        alert.show()
     }
 
 }
