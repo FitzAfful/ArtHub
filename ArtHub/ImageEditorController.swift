@@ -11,6 +11,7 @@ import UIKit
 class ImageEditorController: UIViewController {
 
     @IBOutlet weak var segmentView: UIView!
+    @IBOutlet weak var label: MyLabel!
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var imageViewHeightConstraint: NSLayoutConstraint!
     
@@ -41,6 +42,13 @@ class ImageEditorController: UIViewController {
         segmentedControl.autoresizingMask = [.flexibleRightMargin, .flexibleWidth]
         segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(segmentedControl:)), for: .valueChanged)
         view.addSubview(segmentedControl)
+
+
+        label.text = "Whoever believes in the Son has eternal life, but whoever rejects the Son will not see life. For God's wrath remains on them"
+        label.color = UIColor.white
+        label.stroke = UIColor.black
+        label.font = UIFont.systemFont(ofSize: 18.0)
+        label.widgetColor = UIColor(red: 0.8, green: 0, blue: 0, alpha: 1)
     }
 
     @objc func segmentedControlChangedValue(segmentedControl: HMSegmentedControl) {

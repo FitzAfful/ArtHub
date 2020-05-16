@@ -38,12 +38,20 @@
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="e2e-v9-U9X">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="384"/>
                                     </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ias-c8-Iyl" customClass="MyLabel" customModule="ArtHub" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="8" width="414" height="368"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="384" id="3zI-dI-3Ph"/>
+                                    <constraint firstItem="Ias-c8-Iyl" firstAttribute="leading" secondItem="lns-3N-aYy" secondAttribute="leading" id="Dwa-X9-JWs"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ias-c8-Iyl" secondAttribute="bottom" constant="8" id="Exi-bX-tM8"/>
+                                    <constraint firstItem="Ias-c8-Iyl" firstAttribute="top" secondItem="lns-3N-aYy" secondAttribute="top" constant="8" id="H7m-e2-4IB"/>
                                     <constraint firstAttribute="bottom" secondItem="e2e-v9-U9X" secondAttribute="bottom" id="IKe-OF-8se"/>
                                     <constraint firstItem="e2e-v9-U9X" firstAttribute="leading" secondItem="lns-3N-aYy" secondAttribute="leading" id="cdf-Gm-x6f"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ias-c8-Iyl" secondAttribute="trailing" id="cxg-ct-JA3"/>
                                     <constraint firstItem="e2e-v9-U9X" firstAttribute="top" secondItem="lns-3N-aYy" secondAttribute="top" id="fBp-1h-5Ee"/>
                                     <constraint firstAttribute="trailing" secondItem="e2e-v9-U9X" secondAttribute="trailing" id="s6b-Gg-y4Y"/>
                                 </constraints>
@@ -73,6 +81,7 @@
             <connections>
                 <outlet property="imageView" destination="e2e-v9-U9X" id="pOd-Sc-Bsi"/>
                 <outlet property="imageViewHeightConstraint" destination="3zI-dI-3Ph" id="ucD-1n-x0n"/>
+                <outlet property="label" destination="Ias-c8-Iyl" id="vNC-ux-k1R"/>
                 <outlet property="segmentView" destination="Q8r-z5-5yK" id="wuO-Ub-Pnd"/>
             </connections>
             <point key="canvasLocation" x="-271.01449275362319" y="-7.3660714285714279"/>
