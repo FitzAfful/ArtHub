@@ -49,7 +49,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="i0i-h6-L39">
                                 <rect key="frame" x="0.0" y="258" width="350" height="148"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-6e-zmg" customClass="GradientSlider" customModule="Alerts_Pickers" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NMX-6e-zmg" customClass="GradientSlider" customModule="ArtHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="350" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="B0E-oj-utn"/>
@@ -69,7 +69,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvF-tQ-SGe" customClass="GradientSlider" customModule="Alerts_Pickers" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qvF-tQ-SGe" customClass="GradientSlider" customModule="ArtHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="56" width="350" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="9sO-T7-P4V"/>
@@ -90,7 +90,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3h-jN-c6Z" customClass="GradientSlider" customModule="Alerts_Pickers" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e3h-jN-c6Z" customClass="GradientSlider" customModule="ArtHub" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="112" width="350" height="36"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="36" id="VLr-5h-eGi"/>

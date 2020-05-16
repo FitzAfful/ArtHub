@@ -10,6 +10,10 @@
 		848F5097246D4FAE00112005 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5096246D4FAE00112005 /* ColorPickerViewController.swift */; };
 		848F509A246D4FE700112005 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5099246D4FE700112005 /* GradientSlider.swift */; };
 		848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848F509B246D576200112005 /* ColorPickerViewController.xib */; };
+		848F509F246DA57D00112005 /* ImageEditorController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F509D246DA57D00112005 /* ImageEditorController.swift */; };
+		848F50A0246DA57D00112005 /* ImageEditorController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848F509E246DA57D00112005 /* ImageEditorController.xib */; };
+		848F50A4246EB98600112005 /* HMSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 848F50A3246EB98600112005 /* HMSegmentedControl.m */; };
+		848F50AD246F70B200112005 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F50AC246F70B200112005 /* MyLabel.swift */; };
 		84A49506246CC0FA00773B5C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49505246CC0FA00773B5C /* AppDelegate.swift */; };
 		84A49508246CC0FA00773B5C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49507246CC0FA00773B5C /* SceneDelegate.swift */; };
 		84A4950A246CC0FA00773B5C /* ImagePickerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A49509246CC0FA00773B5C /* ImagePickerController.swift */; };
@@ -52,6 +56,12 @@
 		848F5096246D4FAE00112005 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		848F5099246D4FE700112005 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 		848F509B246D576200112005 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
+		848F509D246DA57D00112005 /* ImageEditorController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageEditorController.swift; sourceTree = "<group>"; };
+		848F509E246DA57D00112005 /* ImageEditorController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ImageEditorController.xib; sourceTree = "<group>"; };
+		848F50A2246EB98600112005 /* HMSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HMSegmentedControl.h; sourceTree = "<group>"; };
+		848F50A3246EB98600112005 /* HMSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HMSegmentedControl.m; sourceTree = "<group>"; };
+		848F50A6246EBAA500112005 /* ArtHub-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ArtHub-Bridging-Header.h"; sourceTree = "<group>"; };
+		848F50AC246F70B200112005 /* MyLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
 		84A49502246CC0F900773B5C /* ArtHub.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ArtHub.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A49505246CC0FA00773B5C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A49507246CC0FA00773B5C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -121,6 +131,37 @@
 			path = Gradient;
 			sourceTree = "<group>";
 		};
+		848F50A1246EB98600112005 /* SegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				848F50A2246EB98600112005 /* HMSegmentedControl.h */,
+				848F50A3246EB98600112005 /* HMSegmentedControl.m */,
+			);
+			path = SegmentedControl;
+			sourceTree = "<group>";
+		};
+		848F50A5246EBA5900112005 /* SupportingFiles */ = {
+			isa = PBXGroup;
+			children = (
+				848F50A6246EBAA500112005 /* ArtHub-Bridging-Header.h */,
+				84A49505246CC0FA00773B5C /* AppDelegate.swift */,
+				84A49507246CC0FA00773B5C /* SceneDelegate.swift */,
+				84A4950B246CC0FA00773B5C /* Main.storyboard */,
+				84A4950E246CC0FC00773B5C /* Assets.xcassets */,
+				84A49510246CC0FC00773B5C /* LaunchScreen.storyboard */,
+				84A49513246CC0FC00773B5C /* Info.plist */,
+			);
+			path = SupportingFiles;
+			sourceTree = "<group>";
+		};
+		848F50AB246F6FEF00112005 /* Text */ = {
+			isa = PBXGroup;
+			children = (
+				848F50AC246F70B200112005 /* MyLabel.swift */,
+			);
+			path = Text;
+			sourceTree = "<group>";
+		};
 		84A494F9246CC0F900773B5C = {
 			isa = PBXGroup;
 			children = (
@@ -144,15 +185,12 @@
 		84A49504246CC0F900773B5C /* ArtHub */ = {
 			isa = PBXGroup;
 			children = (
-				84A49536246CC6C400773B5C /* Helpers */,
+				848F50A5246EBA5900112005 /* SupportingFiles */,
 				84A49535246CC6BA00773B5C /* Extensions */,
-				84A49505246CC0FA00773B5C /* AppDelegate.swift */,
-				84A49507246CC0FA00773B5C /* SceneDelegate.swift */,
+				84A49536246CC6C400773B5C /* Helpers */,
 				84A49509246CC0FA00773B5C /* ImagePickerController.swift */,
-				84A4950B246CC0FA00773B5C /* Main.storyboard */,
-				84A4950E246CC0FC00773B5C /* Assets.xcassets */,
-				84A49510246CC0FC00773B5C /* LaunchScreen.storyboard */,
-				84A49513246CC0FC00773B5C /* Info.plist */,
+				848F509D246DA57D00112005 /* ImageEditorController.swift */,
+				848F509E246DA57D00112005 /* ImageEditorController.xib */,
 			);
 			path = ArtHub;
 			sourceTree = "<group>";
@@ -194,6 +232,8 @@
 		84A49536246CC6C400773B5C /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				848F50AB246F6FEF00112005 /* Text */,
+				848F50A1246EB98600112005 /* SegmentedControl */,
 				848F5098246D4FE700112005 /* Gradient */,
 				848F5095246D4FAE00112005 /* Color */,
 				84A49537246CC7C100773B5C /* Image */,
@@ -325,6 +365,7 @@
 				84A49512246CC0FC00773B5C /* LaunchScreen.storyboard in Resources */,
 				84A4950F246CC0FC00773B5C /* Assets.xcassets in Resources */,
 				848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */,
+				848F50A0246DA57D00112005 /* ImageEditorController.xib in Resources */,
 				84A4950D246CC0FA00773B5C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -353,6 +394,7 @@
 				848F509A246D4FE700112005 /* GradientSlider.swift in Sources */,
 				84A49547246CC82600773B5C /* UIImageView+Extensions.swift in Sources */,
 				84A49543246CC82600773B5C /* UIView+Extensions.swift in Sources */,
+				848F50AD246F70B200112005 /* MyLabel.swift in Sources */,
 				84A4950A246CC0FA00773B5C /* ImagePickerController.swift in Sources */,
 				84A49506246CC0FA00773B5C /* AppDelegate.swift in Sources */,
 				84A49548246CC82600773B5C /* UIImage+Extensions.swift in Sources */,
@@ -365,6 +407,8 @@
 				84A49546246CC82600773B5C /* UIAlertController+Extensions.swift in Sources */,
 				84A4954E246CC9BB00773B5C /* UIColor+Extensions.swift in Sources */,
 				84A4954B246CC8C800773B5C /* Common+Extensions.swift in Sources */,
+				848F50A4246EB98600112005 /* HMSegmentedControl.m in Sources */,
+				848F509F246DA57D00112005 /* ImageEditorController.swift in Sources */,
 				84A4953C246CC7C100773B5C /* ItemWithImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -540,14 +584,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97XB8J435J;
-				INFOPLIST_FILE = ArtHub/Info.plist;
+				INFOPLIST_FILE = ArtHub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fitzafful.ArtHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtHub;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArtHub/SupportingFiles/ArtHub-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -559,14 +604,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 97XB8J435J;
-				INFOPLIST_FILE = ArtHub/Info.plist;
+				INFOPLIST_FILE = ArtHub/SupportingFiles/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = fitzafful.ArtHub;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ArtHub;
+				SWIFT_OBJC_BRIDGING_HEADER = "ArtHub/SupportingFiles/ArtHub-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

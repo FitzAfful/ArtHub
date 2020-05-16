@@ -19,8 +19,6 @@ class ImagePickerController: UIViewController {
                                UIImage(named: "bgImage5")!,
                                UIImage(named: "bgImage6")!]
 
-    private var chosenImage: UIImage?
-
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -38,8 +36,12 @@ class ImagePickerController: UIViewController {
                 paging: false,
                 images: self.bgImages,
                 selection: .single(action: { image in
-                    self.chosenImage = image
-                    self.bgImageView.image = self.chosenImage
+                    if let image = image {
+                        self.bgImageView.image = image
+                        delay(2) {
+                            self.moveToImageEditor(image: image)
+                        }
+                    }
                 }))
             alert.title = "Create Image"
             alert.message = "Choose background image for text"
@@ -49,8 +51,10 @@ class ImagePickerController: UIViewController {
         mainAlert.addAction(UIAlertAction(title: "Color", style: .default, handler: { (action) in
             let alert = UIAlertController(style: .actionSheet)
             alert.addColorPicker(color: UIColor(hex: 0xFF2DC6)) { color in
-                self.chosenImage = UIImage(color: color, size: CGSize(width: 500, height: 500))
-                self.bgImageView.image = self.chosenImage
+                if let image = UIImage(color: color, size: CGSize(width: 500, height: 500)) {
+                    self.bgImageView.image = image
+                    self.moveToImageEditor(image: image)
+                }
             }
             alert.addAction(title: "Cancel", style: .cancel)
             alert.show()
@@ -58,5 +62,17 @@ class ImagePickerController: UIViewController {
         mainAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(mainAlert, animated: true, completion: nil)
     }
+
+    func moveToImageEditor(image: UIImage) {
+        guard let vc = Bundle.main.loadNibNamed("ImageEditorController", owner: self, options: nil)![0] as? ImageEditorController  else { return }
+        let vcNav = UINavigationController(rootViewController: vc)
+        vcNav.modalPresentationStyle = .fullScreen
+        (vcNav.topViewController as! ImageEditorController).preEditedImage = image
+        self.present(vcNav, animated: true, completion: nil)
+    }
 }
 
+func delay(_ delay:Double, closure:@escaping ()->()) {
+    DispatchQueue.main.asyncAfter(
+        deadline: DispatchTime.now() + Double(Int64(delay * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC), execute: closure)
+}
