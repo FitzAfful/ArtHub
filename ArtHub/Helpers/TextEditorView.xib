@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16096"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TextEditorView" customModule="ArtHub" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TextEditorView" customModule="ArtHub" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="190"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="abY-cz-LuP" customClass="XMSegmentedControl" customModule="ArtHub" customModuleProvider="target">
+                    <rect key="frame" x="20" y="22" width="374" height="48"/>
+                    <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="mqN-dC-0ZF"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+            <constraints>
+                <constraint firstItem="abY-cz-LuP" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="20" id="UQy-kB-nAJ"/>
+                <constraint firstAttribute="trailing" secondItem="abY-cz-LuP" secondAttribute="trailing" constant="20" id="ppJ-fl-MnX"/>
+                <constraint firstAttribute="top" secondItem="abY-cz-LuP" secondAttribute="top" constant="-22" id="vSn-Zx-LHx"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="alignmentView" destination="abY-cz-LuP" id="4lD-ye-5ci"/>
+            </connections>
+            <point key="canvasLocation" x="175.36231884057972" y="-43.526785714285715"/>
+        </view>
+    </objects>
+</document>

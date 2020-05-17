@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		845130A92470C25900684302 /* TextEditorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 845130A82470C25900684302 /* TextEditorView.xib */; };
+		845130AB2470C52500684302 /* TextEditorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845130AA2470C52500684302 /* TextEditorView.swift */; };
+		845130AD2470CD8600684302 /* XMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845130AC2470CD8600684302 /* XMSegmentedControl.swift */; };
 		848F5097246D4FAE00112005 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5096246D4FAE00112005 /* ColorPickerViewController.swift */; };
 		848F509A246D4FE700112005 /* GradientSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 848F5099246D4FE700112005 /* GradientSlider.swift */; };
 		848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 848F509B246D576200112005 /* ColorPickerViewController.xib */; };
@@ -53,6 +56,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		845130A82470C25900684302 /* TextEditorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TextEditorView.xib; sourceTree = "<group>"; };
+		845130AA2470C52500684302 /* TextEditorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextEditorView.swift; sourceTree = "<group>"; };
+		845130AC2470CD8600684302 /* XMSegmentedControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XMSegmentedControl.swift; sourceTree = "<group>"; };
 		848F5096246D4FAE00112005 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		848F5099246D4FE700112005 /* GradientSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GradientSlider.swift; sourceTree = "<group>"; };
 		848F509B246D576200112005 /* ColorPickerViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerViewController.xib; sourceTree = "<group>"; };
@@ -136,6 +142,7 @@
 			children = (
 				848F50A2246EB98600112005 /* HMSegmentedControl.h */,
 				848F50A3246EB98600112005 /* HMSegmentedControl.m */,
+				845130AC2470CD8600684302 /* XMSegmentedControl.swift */,
 			);
 			path = SegmentedControl;
 			sourceTree = "<group>";
@@ -237,6 +244,8 @@
 				848F5098246D4FE700112005 /* Gradient */,
 				848F5095246D4FAE00112005 /* Color */,
 				84A49537246CC7C100773B5C /* Image */,
+				845130A82470C25900684302 /* TextEditorView.xib */,
+				845130AA2470C52500684302 /* TextEditorView.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -364,6 +373,7 @@
 			files = (
 				84A49512246CC0FC00773B5C /* LaunchScreen.storyboard in Resources */,
 				84A4950F246CC0FC00773B5C /* Assets.xcassets in Resources */,
+				845130A92470C25900684302 /* TextEditorView.xib in Resources */,
 				848F509C246D576200112005 /* ColorPickerViewController.xib in Resources */,
 				848F50A0246DA57D00112005 /* ImageEditorController.xib in Resources */,
 				84A4950D246CC0FA00773B5C /* Main.storyboard in Resources */,
@@ -399,6 +409,7 @@
 				84A49506246CC0FA00773B5C /* AppDelegate.swift in Sources */,
 				84A49548246CC82600773B5C /* UIImage+Extensions.swift in Sources */,
 				848F5097246D4FAE00112005 /* ColorPickerViewController.swift in Sources */,
+				845130AD2470CD8600684302 /* XMSegmentedControl.swift in Sources */,
 				84A49544246CC82600773B5C /* UIViewController+Extensions.swift in Sources */,
 				84A4953B246CC7C100773B5C /* ImagePickerViewController.swift in Sources */,
 				84A49508246CC0FA00773B5C /* SceneDelegate.swift in Sources */,
@@ -409,6 +420,7 @@
 				84A4954B246CC8C800773B5C /* Common+Extensions.swift in Sources */,
 				848F50A4246EB98600112005 /* HMSegmentedControl.m in Sources */,
 				848F509F246DA57D00112005 /* ImageEditorController.swift in Sources */,
+				845130AB2470C52500684302 /* TextEditorView.swift in Sources */,
 				84A4953C246CC7C100773B5C /* ItemWithImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

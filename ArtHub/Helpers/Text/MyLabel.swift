@@ -18,8 +18,8 @@ class MyLabel: UIView
     private var _strokeWidth: CGFloat = 2.0
     private var _font: UIFont = UIFont(name: "Helvetica Neue", size: 18)!
     private var _widgetColor: UIColor = UIColor(red: 0, green: 0.5, blue: 1.0, alpha: 1.0)
+    private var _paraStyle = NSMutableParagraphStyle()
 
-    private var sizeHandleView: UIView!
     private var borderLayer: CAShapeLayer!
 
     /// Whether the user is currently resizing the view or not.
@@ -29,6 +29,16 @@ class MyLabel: UIView
     private let HANDLE_WIDTH: CGFloat = 20
     private let MIN_FRAME_WIDTH: CGFloat = 60
     private let MIN_FRAME_HEIGHT: CGFloat = 40
+
+    enum Edge {
+        case topLeft, topRight, bottomLeft, bottomRight, none
+    }
+
+    static var edgeSize: CGFloat = 44.0
+    private typealias `Self` = MyLabel
+
+    var currentEdge: Edge = .none
+    var touchStart = CGPoint.zero
 
     @IBInspectable
     public var text: String
@@ -67,6 +77,18 @@ class MyLabel: UIView
     }
 
     @IBInspectable
+    public var paragraphStyle: NSMutableParagraphStyle
+    {
+        get {
+            return _paraStyle
+        }
+        set(value) {
+            _paraStyle = value
+            setNeedsDisplay()
+        }
+    }
+
+    @IBInspectable
     public var strokeWidth: CGFloat
     {
         get {
@@ -91,13 +113,12 @@ class MyLabel: UIView
 
     @IBInspectable
     public var widgetColor: UIColor
-        {
+    {
         get {
             return _widgetColor
         }
         set(value) {
             _widgetColor = value
-            setupSizeHandleView()
             setNeedsDisplay()
         }
     }
@@ -115,86 +136,64 @@ class MyLabel: UIView
         setup()
     }
 
-    @objc func panHandler(_ sender: UIPanGestureRecognizer)
-    {
-        if sender.numberOfTouches <= 0 {
-            return
-        }
-        let location = sender.location(ofTouch: 0, in: self)
-        let translation = sender.translation(in: self)
-
-        if location.x > frame.width - HANDLE_WIDTH * 2 && location.y > frame.height - HANDLE_WIDTH * 2 {
-            /// resize the view
-            if (frame.size.width > MIN_FRAME_WIDTH || translation.x > 0) && (frame.size.width < UIScreen.main.bounds.width - 20 || translation.x < 0) {
-                sizeHandleView.center.x = sizeHandleView.center.x + translation.x
-                frame.size.width += translation.x
-            }
-
-            if (frame.size.height > MIN_FRAME_HEIGHT && frame.size.height < UIScreen.main.bounds.height - 20) || translation.y > 0 {
-                sizeHandleView.center.y = sizeHandleView.center.y + translation.y
-                frame.size.height += translation.y
-            }
-
-            sender.setTranslation(CGPoint.zero, in: self)
-            self.setNeedsDisplay()
-        }
-        else {
-            /// move the view
-            if !isResizing {
-                center.x = center.x + translation.x
-                center.y = center.y + translation.y
-            }
-            sender.setTranslation(CGPoint.zero, in: self)
-        }
-    }
-
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?)
     {
-        let touchLocation = touches.first?.location(in: self)
-        if let tl = touchLocation {
-            if tl.x > frame.width - HANDLE_WIDTH * 2 && tl.y > frame.height - HANDLE_WIDTH * 2 {
-                isResizing = true
-            }
-            else {
-                isResizing = false
+        if let touch = touches.first {
+
+            touchStart = touch.location(in: self)
+
+            currentEdge = {
+                if self.bounds.size.width - touchStart.x < Self.edgeSize && self.bounds.size.height - touchStart.y < Self.edgeSize {
+                    return .bottomRight
+                } else if touchStart.x < Self.edgeSize && touchStart.y < Self.edgeSize {
+                    return .topLeft
+                } else if self.bounds.size.width-touchStart.x < Self.edgeSize && touchStart.y < Self.edgeSize {
+                    return .topRight
+                } else if touchStart.x < Self.edgeSize && self.bounds.size.height - touchStart.y < Self.edgeSize {
+                    return .bottomLeft
+                }
+                return .none
+            }()
+        }
+    }
+
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let currentPoint = touch.location(in: self)
+            let previous = touch.previousLocation(in: self)
+
+            let originX = self.frame.origin.x
+            let originY = self.frame.origin.y
+            let width = self.frame.size.width
+            let height = self.frame.size.height
+
+            let deltaWidth = currentPoint.x - previous.x
+            let deltaHeight = currentPoint.y - previous.y
+
+            switch currentEdge {
+            case .topLeft:
+                self.frame = CGRect(x: originX + deltaWidth, y: originY + deltaHeight, width: width - deltaWidth, height: height - deltaHeight)
+            case .topRight:
+                self.frame = CGRect(x: originX, y: originY + deltaHeight, width: width + deltaWidth, height: height - deltaHeight)
+            case .bottomRight:
+                self.frame = CGRect(x: originX, y: originY, width: width + deltaWidth, height: height + deltaWidth)
+            case .bottomLeft:
+                self.frame = CGRect(x: originX + deltaWidth, y: originY, width: width - deltaWidth, height: height + deltaHeight)
+            default:
+                self.center = CGPoint(x: self.center.x + currentPoint.x - touchStart.x,
+                                      y: self.center.y + currentPoint.y - touchStart.y)
             }
         }
     }
 
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?)
-    {
-        isResizing = false
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        currentEdge = .none
     }
 
     private func setup()
     {
         isUserInteractionEnabled = true
         clipsToBounds = false
-        setupSizeHandleView()
-
-        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(panHandler(_:)))
-        addGestureRecognizer(panGesture)
-    }
-
-    private func setupSizeHandleView()
-    {
-        if let sizeHandleView = sizeHandleView {
-            sizeHandleView.removeFromSuperview()
-        }
-
-        let vFrame = CGRect(x: frame.size.width - HANDLE_WIDTH, y: frame.size.height - HANDLE_WIDTH,
-                            width: HANDLE_WIDTH, height: HANDLE_WIDTH)
-        let sFrame = CGRect(x: 0, y: 0, width: HANDLE_WIDTH, height: HANDLE_WIDTH)
-        let view = UIView(frame: sFrame)
-        let circle = UIBezierPath(ovalIn: vFrame)
-        let circleShape = CAShapeLayer()
-        circleShape.path = circle.cgPath
-        circleShape.fillColor = _widgetColor.cgColor
-        view.layer.addSublayer(circleShape)
-
-        sizeHandleView = view
-
-        addSubview(sizeHandleView)
     }
 
     private func updateBorder(_ rect: CGRect)
@@ -213,8 +212,6 @@ class MyLabel: UIView
         borderLayer.fillColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0).cgColor
     }
 
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
     override func draw(_ rect: CGRect)
     {
         ///Draw the bounding dashed border
@@ -224,19 +221,13 @@ class MyLabel: UIView
         updateBorder(rect)
         self.layer.addSublayer(borderLayer)
 
-
-        /// Draw the text
         let s: NSString = text as NSString
-
-        let paraStyle = NSMutableParagraphStyle()
-        paraStyle.lineSpacing = 0.0
-        paraStyle.alignment = NSTextAlignment.center
 
         let attributes = [
             NSAttributedString.Key.strokeWidth: _strokeWidth * -1,
             NSAttributedString.Key.strokeColor: _stroke,
             NSAttributedString.Key.foregroundColor: _color,
-            NSAttributedString.Key.paragraphStyle: paraStyle,
+            NSAttributedString.Key.paragraphStyle: _paraStyle,
             NSAttributedString.Key.obliqueness: 0.0,
             NSAttributedString.Key.font: _font
             ] as [NSAttributedString.Key : Any]
@@ -249,7 +240,6 @@ class MyLabel: UIView
         )
 
         s.draw(in: textRect, withAttributes: attributes)
-
-        bringSubviewToFront(sizeHandleView)
     }
 }
+
