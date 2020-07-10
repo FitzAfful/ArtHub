@@ -44,9 +44,7 @@ class ImageEditorController: UIViewController, XMSegmentedControlDelegate {
         segmentedControl.addTarget(self, action: #selector(segmentedControlChangedValue(segmentedControl:)), for: .valueChanged)
         view.addSubview(segmentedControl)
 
-        let textEditor = createTextEditorView()
-        editorsContainerView.addSubview(textEditor)
-
+        let textEditor = createTextEditorView(parentView: editorsContainerView)
 
         label.text = "Jesus wept!"
         label.color = UIColor.white
@@ -59,18 +57,21 @@ class ImageEditorController: UIViewController, XMSegmentedControlDelegate {
         print("Selected index \(segmentedControl.selectedSegmentIndex)")
     }
 
-    func createTextEditorView() -> TextEditorView {
+    func createTextEditorView(parentView: UIView) -> TextEditorView {
         let myView = (Bundle.main.loadNibNamed("TextEditorView", owner: self, options: nil)![0] as? UIView)!
         let textEditorView = myView as! TextEditorView
+        textEditorView.frame = CGRect(x: 0, y: 0, width: parentView.width, height: parentView.height)
         let selectors: [UIImage] = [UIImage(named: "left_aligned_unselected")!, UIImage(named: "center_aligned_unselected")!, UIImage(named: "right_aligned_unselected")!]
         let alignmentSegmentedControl = textEditorView.alignmentView!
         alignmentSegmentedControl.segmentIcon = selectors
         alignmentSegmentedControl.selectedItemHighlightStyle = .background
-        alignmentSegmentedControl.backgroundColor = UIColor.lightGray.withAlphaComponent(0.5)
+        alignmentSegmentedControl.backgroundColor = .clear
+        alignmentSegmentedControl.tint = UIColor.lightGray.withAlphaComponent(0.5)
         alignmentSegmentedControl.highlightColor = UIColor.clear
         alignmentSegmentedControl.selectedSegment = 1
         alignmentSegmentedControl.highlightTint = UIColor.init(hexString: "008F00")
         alignmentSegmentedControl.delegate = self
+        parentView.addSubview(textEditorView)
         return textEditorView
     }
 
@@ -78,16 +79,15 @@ class ImageEditorController: UIViewController, XMSegmentedControlDelegate {
         print("SegmentedControl Selected Segment: \(selectedSegment)")
         switch selectedSegment {
         case 0:
-            let paraStyle = NSMutableParagraphStyle()
-            //paraStyle.lineSpacing = 0.0
+            let paraStyle = label.paragraphStyle
             paraStyle.alignment = NSTextAlignment.left
             label.paragraphStyle = paraStyle
         case 1:
-            let paraStyle = NSMutableParagraphStyle()
+            let paraStyle = label.paragraphStyle
             paraStyle.alignment = NSTextAlignment.center
             label.paragraphStyle = paraStyle
         case 2:
-            let paraStyle = NSMutableParagraphStyle()
+            let paraStyle = label.paragraphStyle
             paraStyle.alignment = NSTextAlignment.right
             label.paragraphStyle = paraStyle
         default:
